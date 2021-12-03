@@ -38,17 +38,18 @@ notesRouter.get('/', (req, res) => {
 // DELETE Route for a specific note
 notesRouter.delete('/:note_id', (req, res) => {
     const noteId = req.params.note_id;
-    readFromFile('./db/tips.json')
+    console.log(noteId)
+    readFromFile('./db/db.json')
         .then((data) => JSON.parse(data))
         .then((json) => {
             // Make a new array of all tips except the one with the ID provided in the URL
-            const result = json.filter((note) => note.notei_d !== noteId);
+            const result = json.filter((note) => note.id !== noteId);
 
             // Save that array to the filesystem
-            writeToFile('./db/tips.json', result);
+            writeToFile('./db/db.json', result);
 
             // Respond to the DELETE request
-            res.json(`Note ${tipId} has been deleted 🗑️`);
+            res.json(`Note ${noteId} has been deleted 🗑️`);
         });
 });
 
@@ -60,9 +61,9 @@ notesRouter.post('/', (req, res) => {
         const newNote = {
             title,
             text,
-            note_id: uuidv4(),
+            id: uuidv4(),
         };
-        readAndAppend(newNote, './db/deb.json');
+        readAndAppend(newNote, './db/db.json');
         res.json(`note added successfully 🚀`);
     } else {
         res.error('Error in adding note');
