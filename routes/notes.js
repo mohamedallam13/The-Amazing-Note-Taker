@@ -6,12 +6,6 @@ const {
     readAndAppend
 } = require('../helpers/fsUtils.js');
 
-// GET Route for retrieving all the notes
-// notesRouter.get('/', (req, res) => {
-//     readFromFile('./db/tips.json').then((data) => res.json(JSON.parse(data)));
-// });
-
-
 // GET Route for for all notes
 notesRouter.get('/', (req, res) => {
     readFromFile('./db/db.json')
@@ -21,24 +15,9 @@ notesRouter.get('/', (req, res) => {
         });
 });
 
-
-// // GET Route for a specific note
-// notesRouter.get('/:note_id', (req, res) => {
-//     const noteId = req.params.note_id;
-//     readFromFile('./db/db.json')
-//         .then((data) => JSON.parse(data))
-//         .then((json) => {
-//             const result = json.filter((note) => note.note_id === noteId);
-//             return result.length > 0
-//                 ? res.json(result)
-//                 : res.json('Note not Found');
-//         });
-// });
-
 // DELETE Route for a specific note
 notesRouter.delete('/:note_id', (req, res) => {
     const noteId = req.params.note_id;
-    console.log(noteId)
     readFromFile('./db/db.json')
         .then((data) => JSON.parse(data))
         .then((json) => {
@@ -55,7 +34,6 @@ notesRouter.delete('/:note_id', (req, res) => {
 
 // POST Route for a new note
 notesRouter.post('/', (req, res) => {
-    console.log(req.body);
     const { title, text } = req.body;
     if (req.body) {
         const newNote = {
