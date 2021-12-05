@@ -3,6 +3,9 @@ An application to keep notes and retrieve them from an internal database documen
 
 ![Product screenshot](./screenshots/screenshot1.JPG)
 
+Deployed on Heroku:
+https://vast-reef-72182.herokuapp.com/notes
+
 ## Table of Contents
 
 * [Feature](#feature)
