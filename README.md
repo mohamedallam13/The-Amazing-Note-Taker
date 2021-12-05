@@ -30,6 +30,7 @@ https://vast-reef-72182.herokuapp.com/notes
 * Node.js
 * npm
 * ExpressJS
+* Heroku
 
 ## Installation 
 
@@ -38,12 +39,6 @@ Following are the steps of installation
 ```
 npm i
 ```
-
-## Features
-
-* Easy to use, step by step inquirer to get all necessary information from the user
-* The use of general classes that extends to specific classes and the reliance on OOP
-* Sleek and ploished front end that is responsive and user friendly
 
 ## Usage 
 
